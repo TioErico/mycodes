@@ -1,0 +1,19 @@
+//potênciometro
+
+int pot = A0; //porta analógica
+
+void setup()
+{
+  Serial.begin(9600); //taxa de enviado de dados (padrão)
+}
+
+void loop()
+{
+ int leitura = analogRead(pot); //lê a porta
+ //"regra de três" para converter em resistência
+ int resistencia = map(leitura, 0, 1023, 0, 10000);
+ Serial.print("Resistencia de: ");
+ Serial.print(resistencia); //imprime no monitor serial
+ Serial.println(" ohms");
+ delay(500);
+}
